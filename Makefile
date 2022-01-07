@@ -18,6 +18,11 @@ Cflags = -Wall -Wextra -Werror
 #	echo "done !!!";\
 #fi
 
+c_object_folder :
+	if [ ! -e  "./o_folder" ]; then \
+	@mkdir o_folder; \
+	fi
+
 $(NAME): $(OBJ) $(INC)
 	make -C mlx
 	@$(CC) $(OBJ)  -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
@@ -26,14 +31,13 @@ $(NAME): $(OBJ) $(INC)
 clean: deleting
 	@rm -rf *.o
 	@echo "done !!"
-	make -C mlx clean
 
 fclean:	deleting_lib deleting clean 
 	@rm -rf $(NAME)
 	
 
 re: fclean  all
-	make -C mlx re
+	
 annoncement :
 		@echo "creating program..."
 

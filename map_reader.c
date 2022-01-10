@@ -61,78 +61,59 @@ char	*ft_strjoin(char *s1, char const *s2)
 	return (main_str);
 }
 
-int get_y_x(char c);
-{
-	
-}
 
-char *get_simple(int fd)
+char *get_simple(int fd, t_map *map)
 {
 	char buffer[2];
-	static t_map map;
 
-	map.r = NULL;
+	map->r = NULL;
 	if (fd < 0 || fd > FOPEN_MAX)
 		return(NULL);
-	map.n = read(fd, buffer, 1);
-	map.x = 0;
-	map.y = 0;
-	if (buffer[0] != '\n' && map.y < 1)
+	map->n = read(fd, buffer, 1);
+	if (buffer[0] == '\n' || buffer[0] == '\0')
+		map->y++;
+	if (map->r)
 	{
-		map.x++;
-		printf("%d",map.x);
+		free(map->r);
+		map->r = NULL;
 	}
-	if (buffer[0] == '\n')
-	{	
-		map.y++;
-		printf("%d",map.y);
-	}
-	
-	if (map.r)
+	if (map->n > 0)
 	{
-		free(map.r);
-		map.r = NULL;
+		buffer[map->n] = '\0';
+		map->r = ft_strjoin(map->r, buffer);
+		map->x++;
+		return (map->r);
 	}
-	if (map.n > 0)
-	{
-		buffer[map.n] = '\0';
-		map.r = ft_strjoin(map.r, buffer);
-		return (map.r);
-	}
-	if (map.n == 0)
-		return (map.r);
-	if (map.n < 0)
+	if (map->n == 0)
+		return (map->r);
+	if (map->n < 0)
 		return (NULL);
 	return (0);
 }
-
 
 int main()
 {
 	int fd;
 	char *s;
-	
+	t_map map;
 	fd = open("test.ber", O_RDONLY);
-	/*
-	s = get_simple(fd);
+	s = get_simple(fd, &map);
 	printf("%s",s);
 	free(s);
-	*/
-	/*
-	s = get_next_line(fd);
-	printf("%s",s);
-	free(s);
-	*/
-	
-	s = get_simple(fd);
-	printf("%s",s);
-	free(s);
-	
 	while (s)
 	{
-		s = get_simple(fd);
+		s = get_simple(fd, &map);
 		printf("%s",s);
 		free(s);
 	}
+	map.x = map.x/map.y;
+	// printf("%d",map.x);
+	printf("\n");
+	printf(" %d ",map.y);
+	printf(" %d ",map.x);
+	printf("\n");
+	get_x_y(&map);
+	
 	close(fd);
 }
+

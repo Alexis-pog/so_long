@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 12:00:06 by acoquele          #+#    #+#             */
-/*   Updated: 2022/01/07 17:48:50 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/01/10 15:11:09 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(void)
 	path_xpm = "./assets/full_tile.png";
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	img.img = mlx_png_file_to_image(mlx, path_xpm, &img.x_axis, &img.y_axis);
-	mlx_put_image_to_window(mlx, mlx_win, &img.img , 0, 0);
+	// img.img = mlx_png_file_to_image(mlx, path_xpm, &img.x_axis, &img.y_axis);
+	// mlx_put_image_to_window(mlx, mlx_win, &img.img , 0, 0);
 	mlx_loop(mlx);
 }

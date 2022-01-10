@@ -11,8 +11,12 @@ all: $(NAME)
 Cflags = -Wall -Wextra -Werror
 
 
+#%.o: %.c
+#	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+
 
 #ifeq [$(shell ls | grep "o_files" | wc -l) == 1]; then\
 #	echo "done !!!";\
@@ -23,10 +27,13 @@ c_object_folder :
 	@mkdir o_folder; \
 	fi
 
-$(NAME): $(OBJ) $(INC)
-	make -C mlx
-	@$(CC) $(OBJ)  -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	@echo "program created !!"	
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+
+#$(NAME): $(OBJ) $(INC)
+#	make -C mlx
+#	@$(CC) $(OBJ)  -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+#	@echo "program created !!"	
 
 clean: deleting
 	@rm -rf *.o

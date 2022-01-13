@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/01/10 18:58:45 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/01/13 17:17:09 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,20 @@ typedef struct s_map
 	int x;
 	int y;
 	int n;
+	int count;
 	char *r;
+	char *s;
+	int fd;
 } t_map;
 
 typedef struct	s_data {
 	void	*img;
+	void	*mlx;
+	void	*mlx_win;
+	void	*background;
 	char	*addr;
-	int		x_axis;
-	int		y_axis;
+	int		x;
+	int		y;
 	int		endian;
 }				t_data;
 
@@ -40,4 +46,7 @@ char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_strdup(const char *s1);
 int 	ft_strlen(char *c);
 void 	get_x_y(t_map *map);
+void    make_data(t_data *img, t_map *map);
+int 	ft_strlen(char *c);
+int		map_checker(t_map *map);
 #endif

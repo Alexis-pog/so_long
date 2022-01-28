@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 12:00:06 by acoquele          #+#    #+#             */
-/*   Updated: 2022/01/13 17:41:08 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/01/24 10:32:25 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main()
 	t_map	map;
 
 	make_data(&img,&map);
+	use_data(&map);
 	if (map.x * map.y != (map.count + map.x))
         return (printf("map format wrong"));
 	img.img = mlx_new_image(img.mlx, 1920, 1080);
@@ -30,5 +31,4 @@ int	main()
 	img.background = mlx_xpm_file_to_image(img.mlx, "./assets/xpm/wall.xpm", &img.x, &img.x);
 	mlx_put_image_to_window(img.mlx, mlx_win, img.background , 0, 0);
 	mlx_loop(img.mlx);
-	close(map.fd);
 }

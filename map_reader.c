@@ -6,41 +6,60 @@ void ft_free(char **ptr)
 	*ptr = NULL;
 }
 
+char *strjoin_modif(char *str, char buffer)
+{
+	int index;
+	char *new;
+	index = 0;
+
+	while(str && str[index])
+		index++;
+	new = malloc(index + 2);
+	index = 0;
+	while(str && str[index])
+	{
+		new[index] = str[index];
+		index++;
+	}
+	if (str)
+		free(str);
+	new[index++] = buffer;
+	new[index] = '\0';
+	return (new);
+}
 
 char *get_simple(int fd, t_map *map)
 {
-	char buffer[2];
+	int ret;
+	char *line;
+	char buf[1];
 
-	map->r = NULL;
-	if (fd < 0 || fd > FOPEN_MAX)
-		return(NULL);
-	map->n = read(fd, buffer, 1);
-	if (buffer[0] == '\n' || buffer[0] == '\0')
-		map->y++;
-	if (map->r)
-		free(map->r);
-	if (map->n > 0)
+	ret = 1;
+	line = 0;
+	while((ret && buf[0] != '\n') || buf[0] != '\0')
 	{
-		buffer[map->n] = '\0';
-		map->r = ft_strjoin(map->r, buffer);
-		if (buffer[0] != '\n')
-			map->count++;
+		ret = read(fd, buf, 1);
+		if (!ret || ret == -1)
+			return (line);
+		line = strjoin_modif(line, buf[0]);
+		if (buf[0] == '\n')
+			map->y++;
+		if (map->y == 0)
+			map->x++;
+		if (buf[0] != '\n')
+		map->count++;
 	}
-	if (map->y == 0)
-		map->x++;
-	if(map->n == 0)
-		return (map->r);
-	if (map->n < 0 || buffer[0] == ' ')
-		return (NULL);
-	return (map->r);
+	return (line);
 }
-/*
+
 int main()
 {
 	int fd;
 	char *s;
 	t_map map;
-	fd = open("test2.ber", O_RDONLY);
+	map.x = 0;
+	map.y = 0;
+	fd = open("test.ber", O_RDONLY);
 	s = malloc(1);
 	// printf("%s",s);
 	free(s);
@@ -54,12 +73,11 @@ int main()
 	printf(" %d ",map.x);
 	printf(" %d ",map.count);
 	printf(" %d ",map.x * map.y);
-	printf(" %d ",map.x + map.count);
-	if (map.x * map.y != (map.count + map.x))
+	if (map.x * map.y != (map.count))
         return (printf("map format wrong"));
 	// printf("%d",map.x);
-	get_x_y(&map);
+	use_data(&map);
 	
 	close(fd);
 }
-*/
+

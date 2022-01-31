@@ -12,7 +12,7 @@ Cflags = -Wall -Wextra -Werror
 
 
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+	$(CC) -g -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 #ifeq [$(shell ls | grep "o_files" | wc -l) == 1]; then\
 #	echo "done !!!";\
@@ -25,7 +25,7 @@ c_object_folder :
 
 $(NAME): $(OBJ) $(INC)
 	make -C mlx
-	@$(CC) $(OBJ)  -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(OBJ) -g -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	@echo "program created !!"
 
 clean: deleting

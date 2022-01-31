@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:08:43 by acoquele          #+#    #+#             */
-/*   Updated: 2022/01/12 16:09:16 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/01/31 09:42:12 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,16 @@ char	*ft_strjoin(char *s1, char const *s2)
 		main_str[i++] = s2[i2++];
 	main_str[i] = '\0';
 	return (main_str);
+}
+
+void    *ft_memset(void *str, int c, int n)
+{
+    int    count;
+
+    count = -1;
+    while (++count < n)
+    {
+        *(unsigned char *)(str + count) = (unsigned char)c;
+    }
+    return (str);
 }

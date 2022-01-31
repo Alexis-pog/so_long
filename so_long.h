@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/01/24 10:44:50 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/01/31 14:25:13 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_map
 	char *s;
 	int fd;
 	char **tab;
+	char *name;
 } t_map;
 
 typedef struct	s_data {
@@ -51,4 +52,5 @@ void    make_data(t_data *img, t_map *map);
 int 	ft_strlen(char *c);
 int		map_checker(t_map *map);
 void	use_data(t_map *map);
+void    *ft_memset(void *str, int c, int n);
 #endif

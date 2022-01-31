@@ -6,21 +6,29 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/01/28 13:50:55 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/01/31 16:57:55 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void make_map(t_map *map)
+{
+	map->x = 0;
+	map->y = 0;
+	map->tab = 0;
+	map->count = 0;
+}
 
 void    make_data(t_data *img, t_map *map)
 {
 	img->x = 64;
 	img->y = 64;
 	img->mlx = mlx_init();
-	map->fd = open("test.ber", O_RDONLY);
+	map->fd = open(map->name, O_RDONLY);
+	make_map(map);
+	//printf("%s",map->name);
 	map->s = malloc(1);
-	map->x = 0;
-	map->y = 0;
 	free(map->s);
 	while(map->s)
 	{ 
@@ -30,6 +38,8 @@ void    make_data(t_data *img, t_map *map)
 	}
 	close(map->fd);
 }
+
+
 
 // void	use_data(t_map *map)
 // {

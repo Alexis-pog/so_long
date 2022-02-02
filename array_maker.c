@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array_maker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
+/*   By: workplace <workplace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/02 17:13:05 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/02 23:44:45 by workplace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,19 @@ void map_drawer(t_map *map)
 }
 
 
+/*
 
+tester avec different option remplacer 
+
+0 = o
+1 = x
+c = 2
+p = m
+e = f
+
+faire les condition pour quelle fonctionne comme demander
+
+*/
 
 
 

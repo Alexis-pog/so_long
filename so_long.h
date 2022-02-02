@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/02 13:55:50 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:12:29 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_map
 	int xx;
 	int yy;
 	int count;
+	int count2;
 	char *r;
 	char *s;
 	int fd;

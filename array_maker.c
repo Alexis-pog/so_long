@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/02 15:36:41 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:13:05 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,26 @@ void	use_data(t_map *map)
 
 
 void map_drawer(t_map *map)
-{
+{	
+	map->yy = 0;
 	while(map->yy < map->y)
 	{
 		map->xx = 0;
 		map->count = 0;
-		map->yy = 0;
 		printf("hello");
 		while(map->xx < map->x)
 		{
 			if (map->tab[map->yy][map->xx] == '1')
 			{
 				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->xx * map->count, map->yy * map->count);
+				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
 				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/wall.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->xx * map->count, map->yy * map->count);
+				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
 			}
 			if (map->tab[map->yy][map->xx] == '0')
 			{
 				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->xx * map->count, map->yy * map->count);
+				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
 			}
 			// if (map->tab[map->yy][map->xx] == '0')
 			// {
@@ -76,6 +76,7 @@ void map_drawer(t_map *map)
 			map->count++;
 		}
 		map->yy++;
+		map->count2++;
 	}
 		
 }

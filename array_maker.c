@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array_maker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: workplace <workplace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/02 23:44:45 by workplace        ###   ########.fr       */
+/*   Updated: 2022/02/03 17:13:59 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 
 void	use_data(t_map *map)
 {
+	char *s;
 	printf("\n");
 	reset_map_value(map);
 	map->tab = malloc(sizeof(char *) * (map->y + 1));
     if(!map->tab)
         exit(0);
-	map->fd = open(map->name, O_RDONLY);
-    map->s = malloc(1);
-    free(map->s);
-	while (map->s)
+	map->fd = open("test.ber", O_RDONLY);
+    s = malloc(1);
+    free(s);
+	while (s)
 	{
-		map->s = get_simple(map->fd, map);
-		map->tab[map->yy] = ft_strdup(map->s);
+		s = get_simple(map->fd, map);
+		map->tab[map->yy] = ft_strdup(s);
 		printf("%s",map->tab[map->yy]);
 		map->yy++;
 		free(map->s);
@@ -47,21 +48,24 @@ void map_drawer(t_map *map)
 		{
 			if (map->tab[map->yy][map->xx] == '1')
 			{
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/wall.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
+				printf("X");
+				// map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
+				// mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
+				// map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/wall.xpm", &map->x_img, &map->x_img);
+				// mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
 			}
 			if (map->tab[map->yy][map->xx] == '0')
 			{
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
+				printf("O");
+				// map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
+				// mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->count, map->y_img * map->count2);
 			}
-			// if (map->tab[map->yy][map->xx] == '0')
-			// {
-			// 	map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-			// 	mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->xx * map->count, map->yy * map->count);
-			// }
+			if (map->tab[map->yy][map->xx] == '\n')
+			{
+				printf("\n");
+				// map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
+				// mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->xx * map->count, map->yy * map->count);
+			}
 			// if (map->tab[map->yy][map->xx] == '0')
 			// {
 			// 	map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
@@ -82,19 +86,7 @@ void map_drawer(t_map *map)
 }
 
 
-/*
 
-tester avec different option remplacer 
-
-0 = o
-1 = x
-c = 2
-p = m
-e = f
-
-faire les condition pour quelle fonctionne comme demander
-
-*/
 
 
 

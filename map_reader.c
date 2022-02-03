@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:58:09 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/01 14:58:11 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:20:25 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,31 +60,32 @@ char *get_simple(int fd, t_map *map)
 	return (line);
 }
 
-// int main()
-// {
-// 	int fd;
-// 	char *s;
-// 	t_map map;
-// 	ft_memset(&map, 0, sizeof(t_map));
-// 	fd = open("test.ber", O_RDONLY);
-// 	s = malloc(1);
-// 	// printf("%s",s);
-// 	free(s);
-// 	while (s)
-// 	{
-// 		s = get_simple(fd, &map);
-// 		printf("%s",s);
-// 		free(s);
-// 	}
+int main()
+{
+	int fd;
+	char *s;
+	t_map map;
+	ft_memset(&map, 0, sizeof(t_map));
+	fd = open("test.ber", O_RDONLY);
+	s = malloc(1);
+	// printf("%s",s);
+	free(s);
+	while (s)
+	{
+		s = get_simple(fd, &map);
+		printf("%s",s);
+		free(s);
+	}
 	
-// 	printf(" %d ",map.y);
-// 	printf(" %d ",map.x);
-// 	printf(" %d ",map.count);
-// 	printf(" %d ",map.x * map.y);
-// 	if (map.x * map.y != (map.count))
-//         return (printf("map format wrong"));
-// 	close(fd);
-// 	// printf("%d",map.x);
-// 	use_data(&map);
-// }
+	printf(" %d ",map.y);
+	printf(" %d ",map.x);
+	printf(" %d ",map.count);
+	printf(" %d ",map.x * map.y);
+	if (map.x * map.y != (map.count))
+        return (printf("map format wrong"));
+	close(fd);
+	// printf("%d",map.x);
+	use_data(&map);
+	map_maker_modif(&map);
+}
 

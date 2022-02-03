@@ -6,22 +6,12 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/01 14:10:12 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:21:34 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void reset_map_value(t_map *map)
-{
-	map->x = 0;
-	map->y = 0;
-	map->count = 0;
-	map->xx = 0;
-	map->yy = 0;
-	map->s = 0;
-	map->fd = 0;
-}
 
 void    make_data(t_map *map)
 {

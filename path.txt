@@ -1,0 +1,3 @@
+/Users/acoquele/Desktop/Cursus_42/so_long
+
+gcc map_reader.c help_file.c test.c array_maker.c

@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:58:09 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/03 13:20:25 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/04 15:14:29 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ char *get_simple(int fd, t_map *map)
 		if (!ret || ret == -1)
 			return (line);
 		line = strjoin_modif(line, buf[0]);
-		if (buf[0] == '\n')
+		if (buf[0] == '\n' && map->flag == 0)
 			map->y++;
-		if (map->y == 0)
+		if (map->y == 0 && map->flag == 0)
 			map->x++;
-		if (buf[0] != '\n' && buf[0] != '\0')
+		if (buf[0] != '\n' && buf[0] != '\0' && map->flag == 0)
 		map->count++;
 	}
 	return (line);
@@ -84,8 +84,18 @@ int main()
 	if (map.x * map.y != (map.count))
         return (printf("map format wrong"));
 	close(fd);
-	// printf("%d",map.x);
+	map.flag++;
 	use_data(&map);
-	map_maker_modif(&map);
+	write(1,"pussy",5);
+	map.yy = 0;
+	write(1,"\n",1);
+	while (map.tab[map.yy])
+	{
+		write(1,map.tab[map.yy],ft_strlen(map.tab[map.yy]));
+		//printf("\n%s",map.tab[map.yy]);
+		map.yy++;
+	}
+	printf("\n%s\n",map.tab[0]);
+	print_array(&map);
 }
 

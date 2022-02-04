@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/03 17:13:59 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/04 14:55:26 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 void	use_data(t_map *map)
 {
 	char *s;
-	printf("\n");
-	reset_map_value(map);
+	printf("\n second time the map is written \n");
+	map->tab = 0;
 	map->tab = malloc(sizeof(char *) * (map->y + 1));
     if(!map->tab)
         exit(0);
+	//reset_map_value(map);
 	map->fd = open("test.ber", O_RDONLY);
     s = malloc(1);
     free(s);
@@ -30,12 +31,15 @@ void	use_data(t_map *map)
 		map->tab[map->yy] = ft_strdup(s);
 		printf("%s",map->tab[map->yy]);
 		map->yy++;
-		free(map->s);
+		free(s);
 	}
+	printf("%d",map->x);
+	printf("%d",map->y);
+	map->tab[map->yy] = NULL;
 	close(map->fd);
 }
 
-
+/*
 void map_drawer(t_map *map)
 {	
 	map->yy = 0;
@@ -80,11 +84,10 @@ void map_drawer(t_map *map)
 			map->count++;
 		}
 		map->yy++;
-		map->count2++;
 	}
 		
 }
-
+*/
 
 
 

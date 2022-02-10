@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/09 17:48:44 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:27:09 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,23 @@ typedef struct s_map
 char    *get_simple(int fd, t_map *map);
 char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_strdup(const char *s1);
+char    *ft_strrchr(const char *s, int c);
 int 	ft_strlen(char *c);
-void    make_data(t_map *map);
 int 	ft_strlen(char *c);
 int		map_checker(t_map *map);
+int 	close_win(t_map *map);
+int 	key_press(int keycode, t_map *map);
+void    make_data(t_map *map);
 void	use_data(t_map *map);
 void    *ft_memset(void *str, int c, int n);
 void 	reset_map_value(t_map *map);
-int 	close_win(t_map *map);
 void 	ft_free(t_map *map);
 void 	map_drawer(t_map *map);
-int 	key_press(int keycode, t_map *map);
 void 	map_maker_modif(t_map *map);
 void 	print_array(t_map *map);
 void 	specific_val_reset(t_map *map);
 void 	red();
 void 	reset();
 void 	green();
+void	error();
 #endif

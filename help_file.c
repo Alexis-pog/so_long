@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:08:43 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/09 17:15:18 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:34:48 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,22 @@ void    *ft_memset(void *str, int c, int n)
     return (str);
 }
 
-void reset_map_value(t_map *map)
+char    *ft_strrchr(const char *s, int c)
 {
-	map->xx = 0;
-	map->yy = 0;
-	map->s = 0;
-	map->fd = 0;
+    char    *str;
+    int        i;
+
+    i = 0;
+    c %= 256;
+    str = (char *)s;
+    while (str[i])
+        i++;
+    while (str[i] != c)
+    {
+        if (i == 0)
+            return (str);
+        i--;
+    }
+	i++;
+    return (&str[i]);
 }

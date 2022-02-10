@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/04 14:55:59 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:48:44 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ void 	reset_map_value(t_map *map);
 int 	close_win(t_map *map);
 void 	ft_free(t_map *map);
 void 	map_drawer(t_map *map);
-void 	key_press(t_map *map);
+int 	key_press(int keycode, t_map *map);
 void 	map_maker_modif(t_map *map);
 void 	print_array(t_map *map);
+void 	specific_val_reset(t_map *map);
+void 	red();
+void 	reset();
+void 	green();
 #endif

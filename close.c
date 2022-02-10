@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 11:40:27 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/02 14:35:59 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:44:17 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@ int close_win(t_map *map)
 	exit(0);
 }
 
-void key_press (t_map *map)
+int  key_press (int keycode, t_map *map)
 {
-	int keycode;
-
-	keycode = 0;
-	map->count = 0;
+	
+	printf("%d\n", keycode);
 	if (keycode == 53)
-		exit(0);
+	{
+		close_win(map);
+		exit (0);
+	}
+	// printf("%d", map->count);
+	return (0);
 }
 

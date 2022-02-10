@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:24:08 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/04 15:29:20 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:49:20 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void map_maker_modif(t_map *map)
 {	
 	map->yy = 0;
-	write(1,"hello",5);
+	// write(1,"hello",5);
 	while(map->yy < map->y)
 		{
 		map->xx = 0;
@@ -25,7 +25,9 @@ void map_maker_modif(t_map *map)
 		{
 			if (map->tab[map->yy][map->xx] == '1')
 			{
+				red();
 				printf("X");
+				reset();
 			}
 			else if (map->tab[map->yy][map->xx] == '0')
 			{
@@ -64,7 +66,8 @@ void print_array(t_map *map)
 	write(1,"\n",1);
 	while (map->tab[map->yy])
 	{
-		printf("%s : %d\n",map->tab[map->yy], i++);
+		printf("%d : %s",i ,map->tab[map->yy]);
 		map->yy++;
+		i++;
 	}
 }

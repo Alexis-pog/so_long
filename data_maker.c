@@ -6,12 +6,18 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/03 13:21:34 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:41:05 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void specific_val_reset(t_map *map)
+{
+	map->y = 0;
+	map->x = 0;
+	map->count = 0;
+}
 
 void    make_data(t_map *map)
 {
@@ -19,6 +25,7 @@ void    make_data(t_map *map)
 	map->y_img = 64;
 	map->mlx = mlx_init();
 	reset_map_value(map);
+	specific_val_reset(map);
 	map->fd = open(map->name, O_RDONLY);
 	//printf("%s",map->name);
 	map->s = malloc(1);
@@ -28,9 +35,17 @@ void    make_data(t_map *map)
 		map->s = get_simple(map->fd, map);
 		printf("%s",map->s);
 		free(map->s);
+		if (map->s)
+			map->y++;
 	}
+	printf("\n");
+	map->x--;
+	// printf("!%d!",map->x);
+	// printf("!%d!",map->y);
+	// printf("!%d!",map->count);
 	close(map->fd);
 }
+
 
 
 

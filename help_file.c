@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:08:43 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/10 13:34:48 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/11 14:07:59 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,28 @@ char	*ft_strjoin(char *s1, char const *s2)
 	int		i;
 	int		i2;
 
-	i = 0;
-	i2 = 0;
 	if (!s1)
 		return (ft_strdup(s2));
-	main_str = malloc(sizeof(char)
-			* (ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
+	i = 0;
+	i2 = 0;
+	main_str = malloc(sizeof(char) * 
+		(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
 	if (!main_str)
 		return (NULL);
-	while (s1 && s1[i])
+	while (s1[i] && s1)
 	{
 		main_str[i] = s1[i];
 		i++;
 	}
-	while (s2 && s2[i2])
-		main_str[i++] = s2[i2++];
+	while (s2[i2])
+	{
+		main_str[i] = s2[i2];
+		i++;
+		i2++;
+	}
 	main_str[i] = '\0';
+	if (s1)
+		free(s1);
 	return (main_str);
 }
 

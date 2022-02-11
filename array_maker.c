@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/09 17:26:35 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/11 16:07:04 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void map_drawer(t_map *map)
 	while(map->yy < map->y)
 	{
 		map->xx = 0;
-		map->count = 0;
+		// map->count = 0;
 		while(map->xx < map->x)
 		{
 			if (map->tab[map->yy][map->xx] == '1')
@@ -64,6 +64,8 @@ void map_drawer(t_map *map)
 				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
 				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/hero.xpm", &map->x_img, &map->x_img);
 				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
+				map->move_x_p = map->xx;
+				map->move_y_p = map->yy;
 			}
 			if (map->tab[map->yy][map->xx] == 'C')
 			{
@@ -76,11 +78,11 @@ void map_drawer(t_map *map)
 			{
 				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
 				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/door_open.xpm", &map->x_img, &map->x_img);
+				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/door_closed.xpm", &map->x_img, &map->x_img);
 				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
 			}
 			map->xx++;
-			map->count++;
+			// map->count++;
 		}
 		map->yy++;
 	}

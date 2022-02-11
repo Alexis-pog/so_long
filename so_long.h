@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/10 13:27:09 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/11 14:04:07 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include "wraloc/wraloc.h"
 
 typedef struct s_map
 {
@@ -29,6 +30,8 @@ typedef struct s_map
 	int yy;
 	int count;
 	int flag;
+	int move_x_p;
+	int move_y_p;
 	char *r;
 	char *s;
 	int fd;
@@ -63,4 +66,5 @@ void 	red();
 void 	reset();
 void 	green();
 void	error();
+void	move_new_place(t_map *map, int keycode);
 #endif

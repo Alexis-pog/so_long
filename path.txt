@@ -1,3 +1,19 @@
 /Users/acoquele/Desktop/Cursus_42/so_long
 
-gcc map_reader.c help_file.c test.c array_maker.c
+gcc -Wall -Werror -Wextra -g map_reader.c help_file.c test.c array_maker.c
+
+keycode wasd :
+
+w : 13
+a : 0
+s : 1
+d : 2
+
+what could leak
+
+the map reader
+
+the array maker
+
+the closing processus
+

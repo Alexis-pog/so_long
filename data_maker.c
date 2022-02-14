@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/14 15:16:40 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/14 17:22:40 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,6 @@ void    make_data(t_map *map)
 	if (map->x > 41 || map->y > 20)
 		error();
 	map->x--;
-	// printf("!%d!",map->x);
-	// printf("!%d!",map->y);
-	// printf("!%d!",map->count);
 	close(map->fd);
 }
 

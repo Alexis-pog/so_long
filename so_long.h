@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/14 12:21:58 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:54:10 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "wraloc/wraloc.h"
+// # include "wraloc/wraloc.h"
 
 typedef struct s_map
 {
@@ -32,6 +32,12 @@ typedef struct s_map
 	int flag;
 	int move_x_p;
 	int move_y_p;
+	int p_x_val;
+	int p_y_val;
+	int e_x_val;
+	int e_y_val;
+	int col_val;
+	int move_player;
 	char *r;
 	char *s;
 	int fd;
@@ -72,4 +78,9 @@ void	draw_collectible(t_map *map);
 void	draw_player(t_map *map);
 void	draw_background(t_map *map);
 void	draw_wall(t_map *map);
+void 	wall_collision(t_map *map, int keycode);
+void	print_chr_new_place(t_map *map);
+void	draw_same_door(t_map *map);
+void 	draw_new_door(t_map *map);
+void	collectible(t_map *map);
 #endif

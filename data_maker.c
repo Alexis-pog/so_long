@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/10 13:58:55 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:16:40 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,18 @@ void reset_map_value(t_map *map)
 	map->yy = 0;
 	map->s = 0;
 	map->fd = 0;
+	map->e_x_val = 0;
+	map->e_y_val = 0;
+	map->p_y_val = 0;
+	map->p_x_val = 0;
+	map->col_val = 0;
+	map->move_player = 1;
 }
 
 void    make_data(t_map *map)
 {
 	map->x_img = 64;
 	map->y_img = 64;
-	map->mlx = mlx_init();
 	reset_map_value(map);
 	specific_val_reset(map);
 	map->fd = open(map->name, O_RDONLY);

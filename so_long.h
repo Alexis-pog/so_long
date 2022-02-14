@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/11 14:04:07 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/14 12:21:58 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,9 @@ void 	reset();
 void 	green();
 void	error();
 void	move_new_place(t_map *map, int keycode);
+void	draw_exit(t_map *map);
+void	draw_collectible(t_map *map);
+void	draw_player(t_map *map);
+void	draw_background(t_map *map);
+void	draw_wall(t_map *map);
 #endif

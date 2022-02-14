@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/11 16:07:04 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/14 12:21:49 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,40 +47,15 @@ void map_drawer(t_map *map)
 		while(map->xx < map->x)
 		{
 			if (map->tab[map->yy][map->xx] == '1')
-			{
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/wall.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-			}
-			if (map->tab[map->yy][map->xx] == '0')
-			{
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-			}
-			if (map->tab[map->yy][map->xx] == 'P')
-			{
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/hero.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-				map->move_x_p = map->xx;
-				map->move_y_p = map->yy;
-			}
-			if (map->tab[map->yy][map->xx] == 'C')
-			{
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/collectible.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-			}
-			if (map->tab[map->yy][map->xx] == 'E')
-			{
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-				map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/door_closed.xpm", &map->x_img, &map->x_img);
-				mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->xx, map->y_img * map->yy);
-			}
+				draw_wall(map);
+			else if (map->tab[map->yy][map->xx] == '0')
+				draw_background(map);
+			else if (map->tab[map->yy][map->xx] == 'P')
+				draw_player(map);
+			else if (map->tab[map->yy][map->xx] == 'C')
+				draw_collectible(map);
+			else if (map->tab[map->yy][map->xx] == 'E')
+				draw_exit(map);
 			map->xx++;
 			// map->count++;
 		}

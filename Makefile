@@ -10,22 +10,23 @@ all: $(NAME)
 
 Cflags = -Wall -Wextra -Werror
 
+SANITIZE = -fsanitize=address
 
 %.o: %.c
-	$(CC) -g -Wall -Wextra -Werror -Imlx -c $< -o $@
+	$(CC) -g -Wall -Wextra -Werror  -Imlx -c $< -o $@
 
 #ifeq [$(shell ls | grep "o_files" | wc -l) == 1]; then\
 #	echo "done !!!";\
 #fi
 
 c_object_folder :
-	if [ ! -e  "./o_folder" ]; then \
-	@mkdir o_folder; \
+	@if [ ! -e  "./o_folder" ]; then \
+	mkdir o_folder; \
 	fi
 
 $(NAME): $(OBJ) $(INC)
-	make -C mlx
-	@$(CC) $(OBJ) -g -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@make -C mlx
+	@$(CC) $(OBJ)  -g -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	@echo "program created !!"
 
 clean: deleting

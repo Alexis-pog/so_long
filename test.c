@@ -6,56 +6,11 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:24:08 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/09 16:49:20 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/14 16:19:01 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void map_maker_modif(t_map *map)
-{	
-	map->yy = 0;
-	// write(1,"hello",5);
-	while(map->yy < map->y)
-		{
-		map->xx = 0;
-		map->count = 0;
-		
-		while(map->xx < map->x)
-		{
-			if (map->tab[map->yy][map->xx] == '1')
-			{
-				red();
-				printf("X");
-				reset();
-			}
-			else if (map->tab[map->yy][map->xx] == '0')
-			{
-				printf("O");	
-			}
-			else if (map->tab[map->yy][map->xx] == '\n')
-			{
-				printf("\n");				
-			}
-			else if (map->tab[map->yy][map->xx] == 'E')
-			{
-				printf("G");
-			}
-			else if (map->tab[map->yy][map->xx] == 'P')
-			{
-				printf("D");
-			}
-			else if (map->tab[map->yy][map->xx] == 'C')
-			{
-				printf("E");
-			}
-			map->xx++;
-			map->count++;
-		}
-		map->yy++;
-	}
-}
-
 
 void print_array(t_map *map)
 {

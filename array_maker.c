@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/14 12:21:49 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/14 16:17:37 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ void	use_data(t_map *map)
 }
 
 
-void map_drawer(t_map *map)
+
+
+void map_checker(t_map *map)
 {	
 	map->yy = 0;
 	while(map->yy < map->y)
 	{
 		map->xx = 0;
-		// map->count = 0;
 		while(map->xx < map->x)
 		{
 			if (map->tab[map->yy][map->xx] == '1')
@@ -61,7 +62,30 @@ void map_drawer(t_map *map)
 		}
 		map->yy++;
 	}
-		
+}
+void map_drawer(t_map *map)
+{	
+	map->yy = 0;
+	while(map->yy < map->y)
+	{
+		map->xx = 0;
+		while(map->xx < map->x)
+		{
+			if (map->tab[map->yy][map->xx] == '1')
+				draw_wall(map);
+			else if (map->tab[map->yy][map->xx] == '0')
+				draw_background(map);
+			else if (map->tab[map->yy][map->xx] == 'P')
+				draw_player(map);
+			else if (map->tab[map->yy][map->xx] == 'C')
+				draw_collectible(map);
+			else if (map->tab[map->yy][map->xx] == 'E')
+				draw_exit(map);
+			map->xx++;
+			// map->count++;
+		}
+		map->yy++;
+	}
 }
 
 

@@ -6,13 +6,21 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:58:09 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/10 11:19:07 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 17:49:38 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
+void area_hight(t_map *map, char *buf)
+{
+	if (buf[0] != '\n' && buf[0] != '\0' && buf[0] != ' ')
+		map->count++;
+	else if (buf[0] == '0' || buf[0] == 'E' || buf[0] == 'C' || buf[0] == 'P')
+		map->count++;
+	if (map->y == 0)
+		map->x++;
+}
 
 char *get_simple(int fd, t_map *map)
 {
@@ -37,10 +45,7 @@ char *get_simple(int fd, t_map *map)
 			}
 			return (line);
 		}
-		if (buf[0] != '\n' && buf[0] != '\0' && buf[0] != ' ')
-			map->count++;
-		if (map->y == 0)
-			map->x++;
+		area_hight(map, buf);
 		if (buf[0] == '\n')
 			return (line);
 	}
@@ -48,6 +53,8 @@ char *get_simple(int fd, t_map *map)
 		return (NULL);
 	return (0);
 }
+
+
 
 /*
 int main()

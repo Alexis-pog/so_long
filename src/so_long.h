@@ -6,13 +6,13 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 12:15:45 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 15:41:40 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "./mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include <stdio.h>
 # include <limits.h>
 # include <stdlib.h>

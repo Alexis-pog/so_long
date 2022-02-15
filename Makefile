@@ -2,24 +2,35 @@ NAME = so_long
 
 INC = src/so_long.h
 
-SRC1 = $(shell echo src/*.c) 
+SRC1 = src/array_maker.c \
+		src/array_maker_help.c \
+		src/close_funct.c \
+		src/color.c \
+		src/data_maker.c \
+		src/help_file.c \
+		src/keycode.c \
+		src/keycode_help.c \
+		src/main.c \
+		src/map_reader.c \
+		src/test.c 
 
 OBJ = ${SRC1:.c=.o}
 
 all: $(NAME) 
 
-Cflags = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SANITIZE = -fsanitize=address
 
+
 %.o: %.c
-	$(CC) -g -Wall -Wextra -Werror -Imlx -c $< -o $@
+	$(CC) -g $(CFLAGS) -Imlx -c $< -o $@ 
 
 #ifeq [$(shell ls | grep "o_files" | wc -l) == 1]; then\
 #	echo "done !!!";\
 #fi
 
-c_o = \
+C_O = \
 	if [ ! -e  "oubject" ]; then \
 	mkdir oubject; \
 	fi
@@ -27,8 +38,8 @@ c_o = \
 $(NAME): $(OBJ) $(INC)
 	@make -C mlx
 	@$(CC) $(OBJ)  -g -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	@$(c_o)
-	@mv src/*.o oubject/
+	@$(C_O)
+	@mv $(OBJ) oubject/
 	@echo "program created !!"
 
 clean: deleting

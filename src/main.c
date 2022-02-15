@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 12:00:06 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 18:30:31 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:44:58 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,11 @@ void error_map()
 	printf("that the map is surrounded by '1'\n");
 	printf("that there is at least one exit 'E'\n");
 	printf("that there is at least one collectible 'C'\n");
+	exit(0);
+}
+
+void error()
+{
+	printf("ERROR");
 	exit(0);
 }

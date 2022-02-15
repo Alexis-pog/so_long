@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 18:25:20 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:45:10 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void 	red();
 void 	reset();
 void 	green();
 void	error();
+void	too_big();
 void	error_map();
 void	move_new_place(t_map *map, int keycode);
 void	draw_exit(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 18:22:18 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:44:06 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void specific_val_reset(t_map *map)
 	map->count = 0;
 }
 
+void too_big()
+{
+	red();
+	printf("map too big\n");
+	reset();
+	exit(0);
+}
 void reset_map_value(t_map *map)
 {
 	map->xx = 0;
@@ -54,16 +61,12 @@ void    make_data(t_map *map)
 	}
 	printf("\n");
 	if (map->x > 41 || map->y > 20)
-		error();
+		too_big();
 	map->x--;
 	close(map->fd);
 }
 
-void error()
-{
-	printf("ERROR\n");
-	exit(0);
-}
+
 
 
 // void	use_data(t_map *map)

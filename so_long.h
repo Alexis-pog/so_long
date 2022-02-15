@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/14 16:21:07 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 12:15:45 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int 	ft_strlen(char *c);
 int 	ft_strlen(char *c);
 int 	close_win(t_map *map);
 int 	key_press(int keycode, t_map *map);
+int		wall_collision_counter(t_map *map, int keycode);
 void    make_data(t_map *map);
 void	use_data(t_map *map);
 void    *ft_memset(void *str, int c, int n);
@@ -84,4 +85,5 @@ void	draw_same_door(t_map *map);
 void 	draw_new_door(t_map *map);
 void	collectible(t_map *map);
 void	map_checker(t_map *map);
+void	ESC(t_map *map);
 #endif

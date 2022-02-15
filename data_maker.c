@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/14 17:22:40 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:19:52 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void    make_data(t_map *map)
 	reset_map_value(map);
 	specific_val_reset(map);
 	map->fd = open(map->name, O_RDONLY);
-	//printf("%s",map->name);
 	map->s = malloc(1);
 	free(map->s);
 	while(map->s)

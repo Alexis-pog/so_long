@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:58:09 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 17:49:38 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:25:37 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,16 @@ void area_hight(t_map *map, char *buf)
 {
 	if (buf[0] != '\n' && buf[0] != '\0' && buf[0] != ' ')
 		map->count++;
-	else if (buf[0] == '0' || buf[0] == 'E' || buf[0] == 'C' || buf[0] == 'P')
+	else if (buf[0] == '0' || buf[0] == 'E' || buf[0] == 'P')
 		map->count++;
+	else if (buf[0] == '1' ||  buf[0] == 'C')
+		map->count++;
+	if (buf[0] == 'P')
+		map->flag++;
+	if (buf[0] == 'E')
+		map->flag2++;
+	if (buf[0] == 'C')
+		map->flag3++;
 	if (map->y == 0)
 		map->x++;
 }

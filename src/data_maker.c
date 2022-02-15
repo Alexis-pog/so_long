@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 13:19:52 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:22:18 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void reset_map_value(t_map *map)
 	map->yy = 0;
 	map->s = 0;
 	map->fd = 0;
+	map->flag2 = 0;
+	map->flag = 0;
 	map->e_x_val = 0;
 	map->e_y_val = 0;
 	map->p_y_val = 0;

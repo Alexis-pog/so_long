@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 15:41:40 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:25:20 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_map
 	int yy;
 	int count;
 	int flag;
+	int flag2;
+	int flag3;
 	int move_x_p;
 	int move_y_p;
 	int p_x_val;
@@ -73,6 +75,7 @@ void 	red();
 void 	reset();
 void 	green();
 void	error();
+void	error_map();
 void	move_new_place(t_map *map, int keycode);
 void	draw_exit(t_map *map);
 void	draw_collectible(t_map *map);
@@ -86,4 +89,5 @@ void 	draw_new_door(t_map *map);
 void	collectible(t_map *map);
 void	map_checker(t_map *map);
 void	ESC(t_map *map);
+void 	area_hight(t_map *map, char *buf);
 #endif

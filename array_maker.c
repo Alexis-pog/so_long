@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 12:25:27 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:59:28 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void map_checker(t_map *map)
 		map->yy++;
 	}
 }
+
 void map_drawer(t_map *map)
 {	
 	map->yy = 0;

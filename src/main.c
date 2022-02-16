@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 12:00:06 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 18:44:58 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:45:47 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	main(int argc, char **argv)
 		make_data(&map);
 		if (map.x * map.y != map.count || map.flag > 1 || map.flag2 < 1 || map.flag3 < 1)
 			error_map();
-		use_data(&map);
+		make_array(&map);
+		map_checker(&map);
 		map.mlx_win = mlx_new_window(map.mlx, map.x_img * map.x, map.y_img * map.y, "SO_LONG");
 		if(!map.mlx_win)
 			error();

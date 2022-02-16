@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:18:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 12:19:03 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:42:49 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int close_win(t_map *map)
 void ESC(t_map *map)
 {
 	close_win(map);
-	exit (0);
+	exit(0);
 }

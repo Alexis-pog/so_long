@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 11:40:27 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 13:15:47 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:45:17 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int  key_press (int keycode, t_map *map)
 		map->background = mlx_xpm_file_to_image(map->mlx, "./assets/xpm/background.xpm", &map->x_img, &map->x_img);
 		mlx_put_image_to_window(map->mlx, map->mlx_win, map->background , map->x_img * map->p_x_val, map->y_img *map->p_y_val);
 		if (wall_collision_counter(map, keycode) == 1)
-			printf("you move your player %d time(s)", map->move_player++);
+			printf("you move your player %d time(s)\n", map->move_player++);
 	}
-	printf("%d\n", keycode);
+	// printf("%d\n", keycode);
 	// printf("%d",map->y);
 	if (keycode == 53)
 		ESC(map);

@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 18:45:10 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:21:01 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-// # include "wraloc/wraloc.h"
 
 typedef struct s_map
 {
@@ -63,7 +62,7 @@ int 	close_win(t_map *map);
 int 	key_press(int keycode, t_map *map);
 int		wall_collision_counter(t_map *map, int keycode);
 void    make_data(t_map *map);
-void	use_data(t_map *map);
+void	make_array(t_map *map);
 void    *ft_memset(void *str, int c, int n);
 void 	reset_map_value(t_map *map);
 void 	ft_free(t_map *map);

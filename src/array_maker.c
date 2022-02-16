@@ -6,13 +6,13 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 13:59:28 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:44:15 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	use_data(t_map *map)
+void	make_array(t_map *map)
 {
 	char	*s;
 
@@ -40,26 +40,29 @@ void	use_data(t_map *map)
 
 void map_checker(t_map *map)
 {	
-	map->yy = 0;
-	while(map->yy < map->y)
+	int i;
+
+	i = 0;
+	while (i < map->y)
 	{
-		map->xx = 0;
-		while(map->xx < map->x)
-		{
-			if (map->tab[map->yy][map->xx] == '1')
-				draw_wall(map);
-			else if (map->tab[map->yy][map->xx] == '0')
-				draw_background(map);
-			else if (map->tab[map->yy][map->xx] == 'P')
-				draw_player(map);
-			else if (map->tab[map->yy][map->xx] == 'C')
-				draw_collectible(map);
-			else if (map->tab[map->yy][map->xx] == 'E')
-				draw_exit(map);
-			map->xx++;
-			// map->count++;
+		if(map->tab[i][0] != '1' || map->tab[i][map->x - 1] != '1')
+		{	
+			// printf("\n2hello");
+			ft_free(map);
+			error_map();
+		}	
+		i++;
+	}
+	i = 0;
+	while(i < map->x)
+	{
+		if (map->tab[0][i] != '1' || map->tab[map->y - 1][i] != '1')
+		{	
+			// printf("1hello");
+			ft_free(map);
+			error_map();
 		}
-		map->yy++;
+		i++;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:58:09 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 18:25:37 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:38:45 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int main()
         return (printf("map format wrong"));
 	close(fd);
 	map.flag++;
-	use_data(&map);
+	make_array(&map);
 	// write(1,"pussy",5);
 	map.yy = 0;
 	write(1,"\n",1);

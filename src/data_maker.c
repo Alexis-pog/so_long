@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/15 18:44:06 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:11:52 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,28 @@ void    make_data(t_map *map)
 	reset_map_value(map);
 	specific_val_reset(map);
 	map->fd = open(map->name, O_RDONLY);
+	if (!map->fd)
+	{
+		printf("please lauch the file again");
+		exit(0);
+	}
 	map->s = malloc(1);
+	if (!map->s)
+		exit(0);
 	free(map->s);
 	while(map->s)
 	{ 
 		map->s = get_simple(map->fd, map);
-		printf("%s",map->s);
-		free(map->s);
+		// printf("%s",map->s);
 		if (map->s)
 			map->y++;
+		free(map->s);
 	}
-	printf("\n");
+	if (!map->x || !map->y)
+	{
+		printf("this is an error");
+		exit(0);
+	}
 	if (map->x > 41 || map->y > 20)
 		too_big();
 	map->x--;
@@ -69,7 +80,7 @@ void    make_data(t_map *map)
 
 
 
-// void	use_data(t_map *map)
+// void	make_array(t_map *map)
 // {
 // 	char t_str[map->x];
 // 	int y;

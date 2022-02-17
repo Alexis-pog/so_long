@@ -6,12 +6,12 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:24:08 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/14 16:19:01 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:05:19 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
+/*
 void print_array(t_map *map)
 {
 	printf("\n 3 time printing the array \n");
@@ -26,3 +26,4 @@ void print_array(t_map *map)
 		i++;
 	}
 }
+*/

@@ -6,19 +6,19 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:58:09 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/16 13:38:45 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:58:35 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void area_hight(t_map *map, char *buf)
+void	area_hight(t_map *map, char *buf)
 {
 	if (buf[0] != '\n' && buf[0] != '\0' && buf[0] != ' ')
 		map->count++;
 	else if (buf[0] == '0' || buf[0] == 'E' || buf[0] == 'P')
 		map->count++;
-	else if (buf[0] == '1' ||  buf[0] == 'C')
+	else if (buf[0] == '1' || buf[0] == 'C')
 		map->count++;
 	if (buf[0] == 'P')
 		map->flag++;
@@ -30,14 +30,14 @@ void area_hight(t_map *map, char *buf)
 		map->x++;
 }
 
-char *get_simple(int fd, t_map *map)
+char	*get_simple(int fd, t_map *map)
 {
-	char buf[2];
-	char *line;
-	int n;
+	char	buf[2];
+	char	*line;
+	int		n;
 
 	line = NULL;
-	while(1)
+	while (1)
 	{
 		n = read(fd, buf, 1);
 		buf[1] = '\0';
@@ -61,9 +61,6 @@ char *get_simple(int fd, t_map *map)
 		return (NULL);
 	return (0);
 }
-
-
-
 /*
 int main()
 {
@@ -89,7 +86,7 @@ int main()
 	printf(" %d ",map.count);
 	printf(" %d ",map.x * map.y);
 	if (map.x * map.y != (map.count))
-        return (printf("map format wrong"));
+		return (printf("map format wrong"));
 	close(fd);
 	map.flag++;
 	make_array(&map);

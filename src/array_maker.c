@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/16 15:44:15 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/17 11:50:26 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@ void	make_array(t_map *map)
 
 	map->tab = 0;
 	map->tab = malloc(sizeof(char *) * (map->y + 1));
-    if (!map->tab)
-        exit (0);
+	if (!map->tab)
+		exit (0);
 	map->fd = open(map->name, O_RDONLY);
-    s = malloc (1);
-    free (s);
+	s = malloc (1);
+	free (s);
 	while (s)
 	{
 		s = get_simple(map->fd, map);
 		map->tab[map->yy] = ft_strdup(s);
-		// printf("%s",map->tab[map->yy]);
 		map->yy++;
 		free(s);
 	}
@@ -35,44 +34,39 @@ void	make_array(t_map *map)
 	close(map->fd);
 }
 
-
-
-
-void map_checker(t_map *map)
+void	map_checker(t_map *map)
 {	
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < map->y)
 	{
-		if(map->tab[i][0] != '1' || map->tab[i][map->x - 1] != '1')
+		if (map->tab[i][0] != '1' || map->tab[i][map->x - 1] != '1')
 		{	
-			// printf("\n2hello");
 			ft_free(map);
-			error_map();
+			error_map(map);
 		}	
 		i++;
 	}
 	i = 0;
-	while(i < map->x)
+	while (i < map->x)
 	{
 		if (map->tab[0][i] != '1' || map->tab[map->y - 1][i] != '1')
 		{	
-			// printf("1hello");
 			ft_free(map);
-			error_map();
+			error_map(map);
 		}
 		i++;
 	}
 }
 
-void map_drawer(t_map *map)
+void	map_drawer(t_map *map)
 {	
 	map->yy = 0;
-	while(map->yy < map->y)
+	while (map->yy < map->y)
 	{
 		map->xx = 0;
-		while(map->xx < map->x)
+		while (map->xx < map->x)
 		{
 			if (map->tab[map->yy][map->xx] == '1')
 				draw_wall(map);
@@ -85,14 +79,10 @@ void map_drawer(t_map *map)
 			else if (map->tab[map->yy][map->xx] == 'E')
 				draw_exit(map);
 			map->xx++;
-			// map->count++;
 		}
 		map->yy++;
 	}
 }
-
-
-
 
 /*
 void map_check(t_map *map)
@@ -148,4 +138,3 @@ void error_wall(void)
 	reset();
 }
 */
-

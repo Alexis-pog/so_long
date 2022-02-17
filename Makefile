@@ -5,7 +5,6 @@ INC = src/so_long.h
 SRC1 = src/array_maker.c \
 		src/array_maker_help.c \
 		src/close_funct.c \
-		src/color.c \
 		src/data_maker.c \
 		src/help_file.c \
 		src/keycode.c \

@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:18:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/17 11:51:42 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/17 18:02:43 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free(t_map *map)
 {
-	while (map->y + 1 > 0)
+	while (map->y >= 0)
 		free(map->tab[map->y--]);
 	free(map->tab);
 }

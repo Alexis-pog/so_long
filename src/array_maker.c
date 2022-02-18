@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/17 11:50:26 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/18 18:01:10 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,37 @@ void	make_array(t_map *map)
 		map->yy++;
 		free(s);
 	}
+	printf("\n");
 	map->tab[map->yy] = NULL;
 	close(map->fd);
 }
+// printf("%d : %s",map->yy, map->tab[map->yy]);
 
 void	map_checker(t_map *map)
 {	
 	int	i;
 
 	i = 0;
-	while (i < map->y)
-	{
-		if (map->tab[i][0] != '1' || map->tab[i][map->x - 1] != '1')
-		{	
-			ft_free(map);
-			error_map(map);
-		}	
-		i++;
-	}
-	i = 0;
 	while (i < map->x)
 	{
-		if (map->tab[0][i] != '1' || map->tab[map->y - 1][i] != '1')
+		if (map->tab[0][i] != '1' && map->tab[map->y - 1][i] != '1')
 		{	
 			ft_free(map);
 			error_map(map);
 		}
-		i++;
+		else
+			i++;
+	}
+	i = 1;
+	while (i < map->y - 1)
+	{
+		if (map->tab[i][0] != '1' && map->tab[i][map->x - 1] != '1')
+		{
+			ft_free(map);
+			error_map(map);
+		}
+		else
+			i++;
 	}
 }
 

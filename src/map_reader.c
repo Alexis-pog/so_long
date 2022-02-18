@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:58:09 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/17 13:58:35 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:53:06 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,28 @@ char	*get_simple(int fd, t_map *map)
 {
 	char	buf[2];
 	char	*line;
-	int		n;
 
 	line = NULL;
 	while (1)
 	{
-		n = read(fd, buf, 1);
+		map->n = read(fd, buf, 1);
 		buf[1] = '\0';
 		line = ft_strjoin(line, buf);
-		if (n == -1)
+		if (map->n == -1)
 			return (NULL);
-		if (n == 0)
+		if (map->n == 0)
 		{
-			if (n == 0 && buf[0] == 0)
+			if (map->n == 0 && buf[0] == 0)
 			{
 				free(line);
 				return (NULL);
 			}
-			return (line);
+			return (NULL);
 		}
 		area_hight(map, buf);
 		if (buf[0] == '\n')
 			return (line);
 	}
-	if (n == 0)
-		return (NULL);
 	return (0);
 }
 /*

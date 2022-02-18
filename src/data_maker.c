@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/17 13:34:34 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/18 18:46:33 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	specific_val_reset(t_map *map)
 	map->y_img = 64;
 }
 
-void	too_big(t_map *map)
+void	inv_size(t_map *map)
 {
 	map->n = 5;
-	printf("map too big\n");
+	printf("map size not valid\n");
 	exit(0);
 }
 
@@ -43,6 +43,7 @@ void	reset_map_value(t_map *map)
 	map->p_x_val = 0;
 	map->col_val = 0;
 	map->move_player = 1;
+	map->n = 0;
 }
 
 void	make_data(t_map *map)
@@ -66,8 +67,8 @@ void	make_data(t_map *map)
 			map->y++;
 		free(map->s);
 	}
-	if (map->x > 41 || map->y > 20)
-		too_big(map);
+	if ((map->x > 41 || map->y > 20) || (map->x < 6 || map->y < 6))
+		inv_size(map);
 	map->x--;
 	close(map->fd);
 }

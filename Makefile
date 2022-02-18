@@ -10,21 +10,19 @@ SRC1 = src/array_maker.c \
 		src/keycode.c \
 		src/keycode_help.c \
 		src/main.c \
-		src/map_reader.c \
-		src/test.c 
+		src/map_reader.c
 
 OBJ = ${SRC1:.c=.o}
 
 all: $(NAME) 
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SANITIZE = -fsanitize=address
 
 
 %.o: %.c
-	$(CC) -g $(CFLAGS) -Imlx -c $< -o $@ 
-
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@ 
 #ifeq [$(shell ls | grep "o_files" | wc -l) == 1]; then\
 #	echo "done !!!";\
 #fi
@@ -34,11 +32,12 @@ C_O = \
 	mkdir oubject; \
 	fi
 
-$(NAME): $(OBJ) $(INC)
-	@make -C mlx
-	@$(CC) $(OBJ)  -g -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+
+$(NAME): $(OBJ) $(INC) libx
+	@$(CC) $(OBJ) -g -L. -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	@$(C_O)
 	@mv $(OBJ) oubject/
+	@mv ./mlx/libmlx.dylib ./
 	@echo "program created !!"
 
 clean: deleting
@@ -47,7 +46,12 @@ clean: deleting
 
 fclean:	deleting_lib deleting clean 
 	@rm -rf $(NAME)
-	
+	@make clean -C mlx
+	@rm -rf libmlx.dylib
+
+libx:
+	make -C mlx/
+
 
 re: fclean  all
 	

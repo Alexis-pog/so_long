@@ -18,7 +18,7 @@ all: $(NAME)
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-SANITIZE = -fsanitize=address
+SANITIZE = -fsanitize=address 
 
 
 %.o: %.c

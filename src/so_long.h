@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:06:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/18 18:48:07 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/21 11:50:54 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+// # include "../wraloc/wraloc.h"
+
 typedef struct s_map
 {
 	int		x;
@@ -92,4 +94,5 @@ void	error(t_map *map);
 void	error_map(t_map *map);
 void	inv_size(t_map *map);
 int		close_win(t_map *map);
+void	error_close(t_map *map);
 #endif

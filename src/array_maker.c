@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:50:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/18 18:01:10 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/21 11:52:18 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,32 @@ void	make_array(t_map *map)
 	char	*s;
 
 	map->tab = 0;
+	// write(1,"0",1);
 	map->tab = malloc(sizeof(char *) * (map->y + 1));
 	if (!map->tab)
 		exit (0);
+	// write(1,"1",1);
 	map->fd = open(map->name, O_RDONLY);
+	// write(1,"2",1);
 	s = malloc (1);
+	// write(1,"3",1);
 	free (s);
 	while (s)
 	{
 		s = get_simple(map->fd, map);
+		write(1,"4",1);
 		map->tab[map->yy] = ft_strdup(s);
+		// printf("%s",map->tab[map->yy]);
+		write(1,"5",1);
 		map->yy++;
 		free(s);
 	}
-	printf("\n");
 	map->tab[map->yy] = NULL;
 	close(map->fd);
+	printf("\n");
+	// write(1,"7",1);
+	// write(1,"8",1);
 }
-// printf("%d : %s",map->yy, map->tab[map->yy]);
 
 void	map_checker(t_map *map)
 {	

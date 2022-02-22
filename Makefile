@@ -10,15 +10,15 @@ SRC1 = src/array_maker.c \
 		src/keycode.c \
 		src/keycode_help.c \
 		src/main.c \
-		src/map_reader.c
+		src/map_reader.c \
+		src/help_file2.c \
+		src/error.c
 
 OBJ = ${SRC1:.c=.o}
 
 all: $(NAME) 
 
-CFLAGS = -Wall -Wextra -Werror -g
-
-SANITIZE = -fsanitize=address 
+CFLAGS = -Wall -Wextra -Werror 
 
 
 %.o: %.c

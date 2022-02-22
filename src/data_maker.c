@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:43:25 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/21 10:13:31 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/21 14:59:33 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void	make_data(t_map *map)
 			map->y++;
 		free(map->s);
 	}
+	close(map->fd);
 	if (map->x > 41 || map->y > 20)
 		inv_size(map);
 	map->x--;
-	close(map->fd);
 }
 /*
 void	make_array(t_map *map)

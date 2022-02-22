@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:18:37 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/17 18:02:43 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/21 19:11:57 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_free(t_map *map)
 int	close_win(t_map *map)
 {
 	ft_free(map);
-	mlx_clear_window(map->mlx, map->mlx_win);
 	mlx_destroy_window(map->mlx, map->mlx_win);
 	exit(0);
 }

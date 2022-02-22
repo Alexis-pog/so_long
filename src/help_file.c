@@ -6,7 +6,7 @@
 /*   By: acoquele <acoquele@student@.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:08:43 by acoquele          #+#    #+#             */
-/*   Updated: 2022/02/17 12:45:26 by acoquele         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:00:00 by acoquele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	int		i;
 	int		i2;
 
-	if (!s1)
+	if (!s1 && s2)
 		return (ft_strdup(s2));
 	i = 0;
 	i2 = 0;
